@@ -1,7 +1,25 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const db = require('./config/db');
+const dotenv = require('dotenv');
+const path = require('path');
 
+
+
+
+//Load to config.env file
+dotenv.config({path: './config/config.env'});
+
+
+//Connect to Database
+db();
+
+
+
+
+
+// Create express app
 const app =express();
 
 //middleware
@@ -11,10 +29,12 @@ app.use(morgan('dev'));
 
 app.use(cors());
 
-app.get('/', (req, res)=> {
-   console.log('Get the request for the default route');
-});
+//Set the static Folder Path
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(8080, () =>{
-    console.log('Server is running on port : 8080');
+
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () =>{
+    console.log(`Server is running on port : ${PORT}`);
 });
