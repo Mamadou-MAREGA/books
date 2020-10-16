@@ -4,7 +4,7 @@ const cors = require('cors');
 const db = require('./config/db');
 const dotenv = require('dotenv');
 const path = require('path');
-
+const productRoute = require('./routes/product');
 
 
 
@@ -13,7 +13,7 @@ dotenv.config({path: './config/config.env'});
 
 
 //Connect to Database
-db();
+db().then();
 
 
 
@@ -24,13 +24,16 @@ const app =express();
 
 //middleware
 app.use(express.json());
-
+app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
 
 app.use(cors());
 
 //Set the static Folder Path
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Load routes
+app.use('/api/v1/products', productRoute);
 
 
 
