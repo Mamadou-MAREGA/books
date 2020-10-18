@@ -1,15 +1,21 @@
 const Product = require('../models/Product');
+const CustomError = require('../utilities/customError');
+const asyncMiddleware = require('../middlewares/asyncMiddleware');
 
 // To get all product
-exports.getProducts = async (req, res) => {
-    try {
-        const prod = await Product.find({});
-        res.json({products: prod});
-    } catch (err) {
-        res.json({error: 'Something went wrong'});
-    }
+exports.getProducts = asyncMiddleware( async (req, res, next) => {
 
-};
+    const prod = await Product.find({});
+    res.json({products: prod});
+
+    //res.json({error: 'Something went wrong'});
+    //next(new CustomError('Something went wrong', 500));
+    res.json({
+        success: false,
+        error: new CustomError(new CustomError('Something went wrong', 500))
+    })
+
+});
 
 exports.getSingleProduct = async (req, res) => {
     const prodId = req.params.id;

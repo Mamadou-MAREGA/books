@@ -17,8 +17,6 @@ db().then();
 
 
 
-
-
 // Create express app
 const app =express();
 
