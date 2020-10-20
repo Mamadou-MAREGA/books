@@ -4,8 +4,8 @@ const cors = require('cors');
 const db = require('./config/db');
 const dotenv = require('dotenv');
 const path = require('path');
-const productRoute = require('./routes/product');
-
+const productRoute = require('./routes/products');
+const userRoute = require('./routes/users');
 
 
 //Load to config.env file
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Load routes
 app.use('/api/v1/products', productRoute);
-
+app.use('/api/v1/users', userRoute);
 
 
 const PORT = process.env.PORT || 5000;

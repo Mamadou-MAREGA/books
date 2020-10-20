@@ -5,7 +5,10 @@ const asyncMiddleware = require('../middlewares/asyncMiddleware');
 // To get all product
 exports.getProducts = asyncMiddleware( async (req, res, next) => {
 
-    const prod = await Product.find({});
+    const prod = await Product.find({}).populate({
+        path: 'category',
+        select: 'title'
+    });
     res.json({products: prod});
 
     //res.json({error: 'Something went wrong'});
