@@ -1,13 +1,18 @@
 const express = require('express');
-const Products = require('../models/Product');
+const Product = require('../models/Product');
 const router = express.Router();
-const prodController = require('../controllers/productController');
+const {
+    getProducts,
+    createProduct,
+    getSingleProduct
+} = require('../controllers/productController');
+const moreResults = require('../middlewares/moreResult');
 
 router.route('/')
-    .get(prodController.getProducts)
-    .post(prodController.createProduct);
+    .get(moreResults(Product, 'category'), getProducts)
+    .post(createProduct);
 
 router.route('/:id')
-    .get(prodController.getSingleProduct);
+    .get(getSingleProduct);
 
 module.exports = router;

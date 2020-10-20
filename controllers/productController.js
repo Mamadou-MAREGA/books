@@ -1,10 +1,12 @@
 const Product = require('../models/Product');
+require('../models/Category');//To mae the populate work since category model is not yet used anywhere
 const CustomError = require('../utilities/customError');
 const asyncMiddleware = require('../middlewares/asyncMiddleware');
 
 // To get all product
 exports.getProducts = asyncMiddleware( async (req, res, next) => {
 
+    /*
     const prod = await Product.find({}).populate({
         path: 'category',
         select: 'title'
@@ -17,6 +19,9 @@ exports.getProducts = asyncMiddleware( async (req, res, next) => {
         success: false,
         error: new CustomError(new CustomError('Something went wrong', 500))
     })
+     */
+
+    res.status(200).json(res.moreResults);
 
 });
 
