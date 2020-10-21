@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb1c14b-3a06-486c-ae00-765054ee6fa8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middlewares/moreResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/productController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/moreResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/moreResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/products.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +58,7 @@
       <updated>1602768790451</updated>
       <workItem from="1602768794208" duration="7904000" />
       <workItem from="1602863795977" duration="9823000" />
-      <workItem from="1603045275052" duration="16456000" />
+      <workItem from="1603045275052" duration="20786000" />
     </task>
     <servers />
   </component>
